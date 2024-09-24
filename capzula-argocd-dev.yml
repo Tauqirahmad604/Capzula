@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: preview-worker-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:Capzula-INC/argocd.git'
+    targetRevision: HEAD
+    path: preview-worker-dev
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
